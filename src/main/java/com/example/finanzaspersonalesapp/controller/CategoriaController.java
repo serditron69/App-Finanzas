@@ -4,17 +4,17 @@ import com.example.finanzaspersonalesapp.model.Categoria;
 import com.example.finanzaspersonalesapp.service.CategoriaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/categorias")
+@RequiredArgsConstructor
 @Tag(name = "Categorías", description = "Categorías de ingresos y gastos")
 public class CategoriaController {
-
-    @Autowired private CategoriaService categoriaService;
+    private final CategoriaService categoriaService;
 
     @Operation(summary = "Listar todas las categorías")
     @GetMapping

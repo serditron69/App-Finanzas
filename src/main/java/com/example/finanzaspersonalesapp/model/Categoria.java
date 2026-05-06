@@ -1,5 +1,6 @@
 package com.example.finanzaspersonalesapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.util.List;
@@ -20,18 +21,17 @@ public class Categoria {
     private String nombre;
 
     @Column(name = "tipo", nullable = false, length = 10)
-
-    // Valores: INGRESO o GASTO
     private String tipo;
 
     @Column(name = "icono", length = 50)
     private String icono;
 
     @Column(name = "visible", nullable = false)
-    private Boolean visible = true;  // true = se muestra, false = oculta
+    private Boolean visible = true;
 
     @OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore  // ← ESTO SE AGREGA
     private List<Transaccion> transacciones;
 }

@@ -4,17 +4,17 @@ import com.example.finanzaspersonalesapp.model.Presupuesto;
 import com.example.finanzaspersonalesapp.service.PresupuestoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/presupuestos")
+@RequiredArgsConstructor
 @Tag(name = "Presupuestos", description = "Presupuestos mensuales por categoría")
 public class PresupuestoController {
-
-    @Autowired private PresupuestoService presupuestoService;
+    private final PresupuestoService presupuestoService;
 
     @Operation(summary = "Listar todos los presupuestos")
     @GetMapping

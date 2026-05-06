@@ -2,15 +2,15 @@ package com.example.finanzaspersonalesapp.service;
 
 import com.example.finanzaspersonalesapp.model.Categoria;
 import com.example.finanzaspersonalesapp.repository.CategoriaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class CategoriaServiceImpl implements CategoriaService {
-
-    @Autowired private CategoriaRepository categoriaRepository;
+    private final CategoriaRepository categoriaRepository;
 
     @Override public List<Categoria> findAll() { return categoriaRepository.findAll(); }
     @Override public Optional<Categoria> findById(Long id) { return categoriaRepository.findById(id); }

@@ -4,17 +4,17 @@ import com.example.finanzaspersonalesapp.model.Alerta;
 import com.example.finanzaspersonalesapp.service.AlertaService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/alertas")
+@RequiredArgsConstructor
 @Tag(name = "Alertas", description = "Alertas de gasto por presupuesto")
 public class AlertaController {
-
-    @Autowired private AlertaService alertaService;
+    private final AlertaService alertaService;
 
     @Operation(summary = "Listar todas las alertas")
     @GetMapping

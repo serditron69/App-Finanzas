@@ -2,15 +2,15 @@ package com.example.finanzaspersonalesapp.service;
 
 import com.example.finanzaspersonalesapp.model.Presupuesto;
 import com.example.finanzaspersonalesapp.repository.PresupuestoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class PresupuestoServiceImpl implements PresupuestoService {
-
-    @Autowired private PresupuestoRepository presupuestoRepository;
+    private final PresupuestoRepository presupuestoRepository;
 
     @Override public List<Presupuesto> findAll() { return presupuestoRepository.findAll(); }
     @Override public Optional<Presupuesto> findById(Long id) { return presupuestoRepository.findById(id); }

@@ -2,15 +2,16 @@ package com.example.finanzaspersonalesapp.service;
 
 import com.example.finanzaspersonalesapp.model.Alerta;
 import com.example.finanzaspersonalesapp.repository.AlertaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
+import lombok.RequiredArgsConstructor;
 
 @Service
+@RequiredArgsConstructor
 public class AlertaServiceImpl implements AlertaService {
-
-    @Autowired private AlertaRepository alertaRepository;
+    private final AlertaRepository alertaRepository;
 
     @Override public List<Alerta> findAll() { return alertaRepository.findAll(); }
     @Override public Optional<Alerta> findById(Long id) { return alertaRepository.findById(id); }

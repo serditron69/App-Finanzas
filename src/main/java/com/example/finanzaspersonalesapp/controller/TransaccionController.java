@@ -4,17 +4,17 @@ import com.example.finanzaspersonalesapp.model.Transaccion;
 import com.example.finanzaspersonalesapp.service.TransaccionService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/api/transacciones")
+@RequiredArgsConstructor
 @Tag(name = "Transacciones", description = "Ingresos y gastos + reportes para gráficos")
 public class TransaccionController {
-
-    @Autowired private TransaccionService transaccionService;
+    private final TransaccionService transaccionService;
 
     @Operation(summary = "Listar todas las transacciones")
     @GetMapping

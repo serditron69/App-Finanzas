@@ -1,5 +1,6 @@
 package com.example.finanzaspersonalesapp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -32,10 +33,12 @@ public class Usuario {
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore  // ← ESTO SE AGREGA
     private List<Transaccion> transacciones;
 
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
+    @JsonIgnore  // ← ESTO SE AGREGA
     private List<Presupuesto> presupuestos;
 }
